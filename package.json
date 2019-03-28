@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Petar Petrov",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10",
+    "twit": "^2.2.11",
+    "woeid": "^1.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1"
+  }
+}
