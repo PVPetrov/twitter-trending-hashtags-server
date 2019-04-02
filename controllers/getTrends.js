@@ -3,6 +3,8 @@ import T from '../twit';
 import { getWoeid } from '../utils/woeid';
 
 export const getTrendsByCountry = async(req, res, next) => {
+  console.log('requesting at ', new Date());
+  
 
   const countries = req.query.countries;
 
@@ -12,6 +14,7 @@ export const getTrendsByCountry = async(req, res, next) => {
       .then( data => res.send(data))
       .catch(err => next(err));
   }catch(err){
+    console.log(err);
     next(err);
   }
 }
@@ -19,5 +22,5 @@ export const getTrendsByCountry = async(req, res, next) => {
 const getTrendByWoeid = async woeid => {
   return await T.get(`https://api.twitter.com/1.1/trends/place.json?id=${woeid}`)
     .then(response => response.data[0])
-    .catch(err => err);
+    .catch(err => {throw new Error(err.message)});
 }
